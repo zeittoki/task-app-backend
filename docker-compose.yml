@@ -1,11 +1,11 @@
-version: '3'
+version: '3.8'
 
 services:
   api:
     container_name: api-server
     build: ./server
     ports:
-      - 8080:8080
+      - 80:8080
     depends_on:
       - postgresql
   postgresql:
@@ -19,3 +19,5 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
     restart: always
+volumes:
+  db-store:

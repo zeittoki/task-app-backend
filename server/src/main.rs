@@ -58,7 +58,7 @@ async fn main() -> anyhow::Result<()> {
         .layer(Extension(pool))
         .layer(TraceLayer::new_for_http());
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 8080));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
 
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
